@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // Import OrbitControls
 
 const ThreeCube = () => {
-  const mountRef = React.useRef(null);
+  const mountRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
     if (!mountRef.current) return;
@@ -89,7 +89,9 @@ const ThreeCube = () => {
 
     // Cleanup function for component unmount
     return () => {
-      mountRef.current.removeChild(renderer.domElement);
+      if (mountRef.current && renderer.domElement) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
       geometry.dispose();
       material.dispose();
       planeGeometry.dispose();
@@ -107,8 +109,8 @@ const ThreeCube = () => {
 const IndexPage = () => {
   return (
     <div>
-      <Button>Test 123</Button>
       <ThreeCube />
+      Test
     </div>
   );
 };

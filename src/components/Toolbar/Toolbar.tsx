@@ -1,5 +1,6 @@
 import React from 'react';
-import { Toolbar as ToolbarComponent } from '@fluentui/react-components';
+import { Toolbar as ToolbarComponent, ToolbarButton } from '@fluentui/react-components';
+import Link from 'next/link';
 import { makeStyles } from '@griffel/react';
 import { tokens } from '@fluentui/react-theme';
 
@@ -18,6 +19,13 @@ const useToolbarStyles = makeStyles({
     zIndex: 10000,
     boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
   },
+
+  toolbarButton: {
+    height: '48px',
+  },
+  flexGrow: {
+    flexGrow: 1,
+  },
   linkStyles: {
     textDecorationLine: 'none',
     color: tokens.colorNeutralForeground1,
@@ -29,7 +37,25 @@ export const Toolbar = () => {
 
   return (
     <ToolbarComponent className={toolbarStyles.root}>
-      <h1>Logo</h1>
+      <Link href="/" passHref>
+        <h1>Nyx</h1>
+      </Link>
+      <div className={toolbarStyles.flexGrow} />
+      <Link href="/about" passHref>
+        <ToolbarButton className={toolbarStyles.toolbarButton}>About</ToolbarButton>
+      </Link>
+      <Link href="/music" passHref>
+        <ToolbarButton className={toolbarStyles.toolbarButton}>Music</ToolbarButton>
+      </Link>
+      <Link href="/contact" passHref>
+        <ToolbarButton className={toolbarStyles.toolbarButton}>Contact</ToolbarButton>
+      </Link>
+      <Link href="/live" passHref>
+        <ToolbarButton className={toolbarStyles.toolbarButton}>Live</ToolbarButton>
+      </Link>
+      <Link href="/shop" passHref>
+        <ToolbarButton className={toolbarStyles.toolbarButton}>Shop</ToolbarButton>
+      </Link>
     </ToolbarComponent>
   );
 };
