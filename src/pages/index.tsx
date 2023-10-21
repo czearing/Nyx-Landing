@@ -4,7 +4,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // Import OrbitControls
 
 const ThreeCube = () => {
-  const mountRef = React.useRef(null);
+  const mountRef = React.useRef<any>(null);
 
   React.useEffect(() => {
     // Boilerplate setup (scene, camera, renderer)
