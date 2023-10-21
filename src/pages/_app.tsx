@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
+import { FluentProvider, webDarkTheme, webLightTheme } from '@fluentui/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SSRProvider } from '@fluentui/react-utilities';
 import { RendererProvider, createDOMRenderer } from '@griffel/react';
-import { AppProvider } from '../context';
 import { AppContainer } from '../components';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../clients/react-query';
@@ -33,7 +32,7 @@ export default function App(props: AppProps) {
           </Head>
           <style jsx global>{`
             body {
-              background-color: ${webDarkTheme.colorNeutralBackground2};
+              background-color: ${webLightTheme.colorNeutralBackground2};
               padding: 0px;
               margin: 0px;
               height: 100%;
@@ -49,7 +48,7 @@ export default function App(props: AppProps) {
           <RendererProvider renderer={pageProps.renderer || createDOMRenderer()}>
             <SSRProvider>
               {isMounted && (
-                <FluentProvider theme={webDarkTheme} style={fluentProviderStyles}>
+                <FluentProvider theme={webLightTheme} style={fluentProviderStyles}>
                   <AppContainer>
                     <Component {...pageProps} />
                   </AppContainer>
