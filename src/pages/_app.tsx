@@ -25,9 +25,11 @@ export default function App(props: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Head>
-            <title>Voice Assistant</title>
-            <meta name="title" content="Voice Assistant" />
-            <meta name="description" content="A helpful voice assistant site." />
+            <meta name="title" content="Nyx - Music | Official Site" />
+            <meta
+              name="description"
+              content="Explore the electrifying realm of Nyx, Seattle's premier electronic music artist. Discover the latest tracks, event updates, and exclusive content only on the official Nyx website."
+            />
             <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
           </Head>
           <style jsx global>{`
