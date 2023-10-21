@@ -107,7 +107,7 @@ const ThreeCube = () => {
 const IndexPage = () => {
   return (
     <div>
-      <Button>Test</Button>
+      <Button>Test 123</Button>
       <ThreeCube />
     </div>
   );
