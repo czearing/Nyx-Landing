@@ -31,6 +31,10 @@ export default function App(props: AppProps) {
               content="Explore the electrifying realm of Nyx, Seattle's premier electronic music artist. Discover the latest tracks, event updates, and exclusive content only on the official Nyx website."
             />
             <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
+            <link rel="canonical" href="https://nyx.band/" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+            <html lang="en" />
           </Head>
           <style jsx global>{`
             body {
