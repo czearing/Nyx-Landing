@@ -72,7 +72,7 @@ const OverflowMenuItem: React.FC<{ id: string; href: string }> = props => {
 };
 
 const OverflowMenu: React.FC<{ items: Array<{ content: string; href: string }> }> = ({ items }) => {
-  const { ref, overflowCount, isOverflowing } = useOverflowMenu<HTMLButtonElement>();
+  const { ref, isOverflowing } = useOverflowMenu<HTMLButtonElement>();
 
   const toolbarStyles = useToolbarStyles();
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Button } from '@fluentui/react-components';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // Import OrbitControls
 
@@ -87,10 +86,12 @@ const ThreeCube = () => {
 
     animate();
 
+    const currentRef = mountRef.current;
+
     // Cleanup function for component unmount
     return () => {
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (currentRef) {
+        currentRef.removeChild(renderer.domElement);
       }
       geometry.dispose();
       material.dispose();

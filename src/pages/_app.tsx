@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FluentProvider, webDarkTheme, webLightTheme } from '@fluentui/react-components';
+import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SSRProvider } from '@fluentui/react-utilities';
