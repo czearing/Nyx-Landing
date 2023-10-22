@@ -20,6 +20,32 @@ function createCircleTexture() {
   return texture;
 }
 
+// Vertex Shader
+const vertexShader = `
+  varying vec3 vWorldPosition;
+
+  void main() {
+    vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+    vWorldPosition = worldPosition.xyz;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  }
+`;
+
+// Fragment Shader
+const fragmentShader = `
+  uniform vec3 topColor;
+  uniform vec3 bottomColor;
+  uniform float offset;
+  uniform float exponent;
+
+  varying vec3 vWorldPosition;
+
+  void main() {
+    float h = normalize(vWorldPosition + offset).y;
+    gl_FragColor = vec4(mix(bottomColor, topColor, max(pow(max(h, 0.0), exponent), 0.0)), 1.0);
+  }
+`;
+
 // Component
 export const Stars = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -41,7 +67,28 @@ export const Stars = () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Stars
+    // Define the colors for the gradient
+    const uniforms = {
+      topColor: { value: new THREE.Color(0x000000) }, // black
+      bottomColor: { value: new THREE.Color(0x000066) }, // deep blue
+      offset: { value: 33 },
+      exponent: { value: 0.6 },
+    };
+
+    // Create Sky material
+    const skyMaterial = new THREE.ShaderMaterial({
+      uniforms: uniforms,
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
+      side: THREE.BackSide,
+    });
+
+    // Sky sphere
+    const skyGeometry = new THREE.SphereGeometry(1000, 32, 15);
+    const skyBox = new THREE.Mesh(skyGeometry, skyMaterial);
+    scene.add(skyBox);
+
+    // Stars setup
     const starQty = 45000;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(starQty * 3);
@@ -53,23 +100,22 @@ export const Stars = () => {
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const texture = createCircleTexture();
-    const material = new THREE.PointsMaterial({
-      size: 0.7,
-      map: texture,
+    const starMaterial = new THREE.PointsMaterial({
+      size: 0.5,
+      map: createCircleTexture(),
       transparent: true,
       color: 0xffffff,
       opacity: 0.8,
       alphaTest: 0.5,
     });
-    const stars = new THREE.Points(geometry, material);
 
+    const stars = new THREE.Points(geometry, starMaterial); // The 'stars' variable is now accessible
     scene.add(stars);
 
     // Animation
     const animate = () => {
       requestAnimationFrame(animate);
-      stars.rotation.x += 0.00015;
+      stars.rotation.x += 0.00015; // 'stars' is now recognized here
       stars.rotation.y += 0.00015;
       renderer.render(scene, camera);
     };
@@ -79,7 +125,6 @@ export const Stars = () => {
     // Resizing
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
-      camera.fov = 90;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
@@ -91,8 +136,10 @@ export const Stars = () => {
       window.removeEventListener('resize', handleResize);
       scene.remove(stars);
       geometry.dispose();
-      material.dispose();
+      starMaterial.dispose();
       renderer.dispose();
+      skyBox.geometry.dispose();
+      skyBox.material.dispose();
       // eslint-disable-next-line react-hooks/exhaustive-deps
       containerRef.current?.removeChild(renderer.domElement);
     };

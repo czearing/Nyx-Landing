@@ -15,6 +15,7 @@ const Facebook = () => <Image src="/image/FacebookLogo.svg" alt="Facebook logo" 
 const XLogo = () => <Image src="/image/XLogo.svg" alt="X logo" width={24} height={24} />;
 
 const TidalLogo = () => <Image src="/image/TidalLogo.svg" alt="Tidal logo" width={24} height={24} />;
+
 export const SocialLinks = () => {
   return (
     <div style={{ display: 'flex', gap: '10px' }}>
