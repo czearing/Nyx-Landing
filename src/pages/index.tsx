@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // Import OrbitControls
-
+import { Stars } from '../components/LandingArt/Stars';
 const ThreeCube = () => {
   const mountRef = React.useRef<HTMLDivElement | null>(null);
 
@@ -110,7 +110,9 @@ const ThreeCube = () => {
 const IndexPage = () => {
   return (
     <div>
-      <ThreeCube />
+      {/* <WaterEffectCanvas /> */}
+      {/* <ThreeCube /> */}
+      <Stars />
       Test
     </div>
   );

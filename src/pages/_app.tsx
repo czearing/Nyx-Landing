@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FluentProvider, webLightTheme } from '@fluentui/react-components';
+import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SSRProvider } from '@fluentui/react-utilities';
@@ -38,7 +38,7 @@ export default function App(props: AppProps) {
           </Head>
           <style jsx global>{`
             body {
-              background-color: ${webLightTheme.colorNeutralBackground2};
+              background-color: ${webDarkTheme.colorNeutralBackground2};
               padding: 0px;
               margin: 0px;
               height: 100%;
@@ -54,7 +54,7 @@ export default function App(props: AppProps) {
           <RendererProvider renderer={pageProps.renderer || createDOMRenderer()}>
             <SSRProvider>
               {isMounted && (
-                <FluentProvider theme={webLightTheme} style={fluentProviderStyles}>
+                <FluentProvider theme={webDarkTheme} style={fluentProviderStyles}>
                   <AppContainer>
                     <Component {...pageProps} />
                   </AppContainer>
