@@ -32,6 +32,7 @@ const useToolbarStyles = makeStyles({
     flexShrink: 0,
     zIndex: 10000,
     boxShadow: tokens.shadow4,
+    backgroundColor: tokens.colorNeutralBackground1,
   },
 
   toolbarButton: {
