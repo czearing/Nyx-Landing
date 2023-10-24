@@ -8,6 +8,7 @@ import { AppContainer } from '../components';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../clients/react-query';
 import { SessionProvider } from 'next-auth/react';
+import Script from 'next/script';
 
 const fluentProviderStyles = { height: '100%' };
 
@@ -50,6 +51,23 @@ export default function App(props: AppProps) {
               height: 100%;
             }
           `}</style>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+            strategy="afterInteractive"
+          />
+          <Script id="partytown-gtag" type="text/partytown">
+            {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+      page_path: window.location.pathname,
+    });
+  `}
+          </Script>
+
           <RendererProvider renderer={pageProps.renderer || createDOMRenderer()}>
             <SSRProvider>
               {isMounted && (
