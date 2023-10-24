@@ -35,6 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseBody>) =
     });
 
     return res.status(201).json({ error: '' }); // Success with no error message
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     // Improved error handling to check for the specific case when a user is already subscribed
     if (error.response && error.response.body && error.response.body.title === 'Member Exists') {
