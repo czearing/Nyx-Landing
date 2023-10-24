@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Stars } from '../components/LandingArt/Stars';
+import { NewsLetterComponent } from '../components';
 
 const IndexPage = () => {
   return (
