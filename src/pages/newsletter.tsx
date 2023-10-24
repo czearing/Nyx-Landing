@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Input, Button, Text } from '@fluentui/react-components';
+import { Input, Button } from '@fluentui/react-components';
 
 const Subscribe = () => {
-  const inputEl = useRef(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const inputEl = useRef<any>(null);
   const [message, setMessage] = useState('');
 
-  const subscribe = async e => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const subscribe = async (e: any) => {
     e.preventDefault();
 
     const res = await fetch('/api/newsletterSubscribe', {
