@@ -1,48 +1,62 @@
-// Importing the necessary libraries
-import mailchimp from '@mailchimp/mailchimp_marketing';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import Mailjet from 'node-mailjet';
 
-// Configuring Mailchimp
-mailchimp.setConfig({
-  apiKey: process.env.MAILCHIMP_API_KEY,
-  server: process.env.MAILCHIMP_API_SERVER, // Assuming this is something like 'us1', 'us2' etc.
+const mailjetClient = new Mailjet({
+  apiKey: process.env.MAILJET_API_KEY,
+  apiSecret: process.env.MAILJET_API_SECRET,
 });
 
-// The type for the request body
 type RequestBody = {
   email?: string;
 };
 
-// The type for the response body
 type ResponseBody = {
   error?: string;
 };
 
-// The main function to handle requests
 export default async (req: NextApiRequest, res: NextApiResponse<ResponseBody>) => {
   const { email } = req.body as RequestBody;
 
-  // Check if the email is provided
   if (!email) {
     return res.status(400).json({ error: 'Email is required' });
   }
 
   try {
-    // Attempt to register the email with Mailchimp
-    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID as string, {
-      email_address: email,
-      status: 'subscribed',
-    });
+    // Create a new contact
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const contactResponse: any = await mailjetClient.post('contact').request({ Email: email });
 
-    return res.status(201).json({ error: '' }); // Success with no error message
+    // Check if the contact was created successfully
+    if (contactResponse?.body?.Data?.length > 0) {
+      const contactID = contactResponse.body.Data[0].ID;
+
+      // Add the contact to a list
+      await mailjetClient.post('listrecipient').request({
+        ContactID: contactID,
+        ListID: process.env.MAILJET_LIST_ID as string,
+      });
+
+      return res.status(201).json({});
+    } else {
+      throw new Error('Failed to create contact');
+    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    // Improved error handling to check for the specific case when a user is already subscribed
-    if (error.response && error.response.body && error.response.body.title === 'Member Exists') {
-      return res.status(400).json({ error: 'You are already subscribed to the newsletter.' });
+    console.error('Mailjet error', error.statusCode, error.message);
+
+    // Define a default error message
+    let errorMessage = 'An unexpected error occurred.';
+    const statusCode = error.statusCode || 500;
+
+    // If the error has a response and it's from Mailjet, parse it
+    if (error.statusCode === 400) {
+      if (error.message.includes('already exists')) {
+        errorMessage = 'You are already subscribed to the newsletter.';
+      } else {
+        errorMessage = 'There was a problem with your subscription request.';
+      }
     }
 
-    // General error handling
-    return res.status(500).json({ error: error.message || 'An unexpected error occurred.' });
+    return res.status(statusCode).json({ error: errorMessage });
   }
 };
