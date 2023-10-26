@@ -34,7 +34,7 @@ export default function App(props: AppProps) {
         </Head>
         <style jsx global>{`
           body {
-            background-color: ${webDarkTheme.colorNeutralBackground2};
+            background-color: ${webDarkTheme.colorNeutralBackground1};
             padding: 0px;
             margin: 0px;
             height: 100%;
