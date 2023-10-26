@@ -1,5 +1,6 @@
 import { createDOMRenderer, renderToStyleElements } from '@fluentui/react-components';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -40,6 +41,14 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <Script strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-00XYLP9LZR');
+            `}
+          </Script>
         </body>
       </Html>
     );
