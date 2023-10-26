@@ -5,10 +5,10 @@ import { NewsLetterComponent } from '../components';
 const IndexPage = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* <div>
+      <div>
         <h1>Section Above Stars</h1>
         <p>This is some content above the stars.</p>
-      </div> */}
+      </div>
 
       {/* The Stars section with a specific height */}
       <div>
@@ -20,6 +20,7 @@ const IndexPage = () => {
         <h1>Section Below Stars</h1>
         <p>This is some content below the stars.</p>
       </div>
+      <NewsLetterComponent />
     </div>
   );
 };

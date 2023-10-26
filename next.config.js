@@ -3,4 +3,7 @@ module.exports = {
   experimental: {
     nextScriptWorkers: true,
   },
+  images: {
+    domains: ['nyxmusic.myshopify.com', 'cdn.shopify.com'],
+  },
 };

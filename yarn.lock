@@ -2670,6 +2670,11 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.4.tgz#0a41252ad431c473158b22f9bfb9a63df7541cff"
   integrity sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==
 
+"@types/shopify-buy@^2.17.3":
+  version "2.17.3"
+  resolved "https://registry.yarnpkg.com/@types/shopify-buy/-/shopify-buy-2.17.3.tgz#04d1aaebb145ac6ad05a57cbb94f42b8e3a9d5a4"
+  integrity sha512-SWabUB2aBHvtw/GJf0zNSXae2i2ggOC3nTxIELoSHU9RnY1HdZ55Oteh/FmoHH0ppCNKkh3mWEJ6g+IhbMdLyQ==
+
 "@types/stats.js@*":
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/@types/stats.js/-/stats.js-0.17.2.tgz#97b6fa9bbb534e8e65c693cf0e90588756783574"
