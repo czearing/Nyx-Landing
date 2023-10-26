@@ -7,6 +7,7 @@ import { RendererProvider, createDOMRenderer } from '@griffel/react';
 import { AppContainer } from '../components';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../clients/react-query';
+import Script from 'next/script';
 
 const fluentProviderStyles = { height: '100%' };
 
@@ -32,6 +33,15 @@ export default function App(props: AppProps) {
           <link rel="canonical" href="https://nyx.band/" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-00XYLP9LZR" />
+        <Script>
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-00XYLP9LZR');
+            `}
+        </Script>
         <style jsx global>{`
           body {
             background-color: ${webDarkTheme.colorNeutralBackground1};
