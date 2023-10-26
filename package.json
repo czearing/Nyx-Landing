@@ -24,7 +24,8 @@
     "@react-three/fiber": "^8.15.1",
     "glslify": "^7.1.1",
     "node-mailjet": "^6.0.4",
-    "@builder.io/partytown": "^0.7.1"
+    "@builder.io/partytown": "^0.7.1",
+    "shopify-buy": "^2.21.1"
   },
   "devDependencies": {
     "eslint": "^8.52.0",
