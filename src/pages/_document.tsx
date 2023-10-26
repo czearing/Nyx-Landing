@@ -36,19 +36,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <script
-            data-partytown-config
-            dangerouslySetInnerHTML={{
-              __html: `
-          partytown = {
-            lib: "/_next/static/~partytown/",
-            forward: ["gtag"]
-          };
-        `,
-            }}
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
