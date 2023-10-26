@@ -7,7 +7,6 @@ import { RendererProvider, createDOMRenderer } from '@griffel/react';
 import { AppContainer } from '../components';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../clients/react-query';
-import Script from 'next/script';
 
 const fluentProviderStyles = { height: '100%' };
 
