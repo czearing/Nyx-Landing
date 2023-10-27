@@ -33,15 +33,6 @@ export default function App(props: AppProps) {
           <link rel="canonical" href="https://nyx.band/" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-00XYLP9LZR" />
-        <Script>
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-00XYLP9LZR');
-            `}
-        </Script>
         <style jsx global>{`
           body {
             background-color: ${webDarkTheme.colorNeutralBackground1};
