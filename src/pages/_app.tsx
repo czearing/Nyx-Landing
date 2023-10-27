@@ -33,7 +33,7 @@ export default function App(props: AppProps) {
           <link rel="canonical" href="https://nyx.band/" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-00XYLP9LZR" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-00XYLP9LZR" />
         <Script>
           {`
               window.dataLayer = window.dataLayer || [];

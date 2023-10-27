@@ -38,20 +38,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head />
-
         <body>
           <Main />
           <NextScript />
-          <Script src="https://www.googletagmanager.com/gtag/js?id=G-00XYLP9LZR" />
-          <Script>
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-
-              gtag('config', 'G-00XYLP9LZR');
-            `}
-          </Script>
         </body>
       </Html>
     );
