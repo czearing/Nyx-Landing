@@ -1,7 +1,6 @@
 import { createDOMRenderer, renderToStyleElements } from '@fluentui/react-components';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
-const GA_MEASUREMENT_ID = 'G-00XYLP9LZR';
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const renderer = createDOMRenderer();
