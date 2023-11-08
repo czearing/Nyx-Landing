@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Input, Button } from '@fluentui/react-components';
 
-export const NewsLetterComponent = () => {
+export const NewsLetter = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inputEl = useRef<any>(null);
   const [message, setMessage] = useState('');

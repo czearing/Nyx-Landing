@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
+import { FluentProvider } from '@fluentui/react-components';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { SSRProvider } from '@fluentui/react-utilities';
@@ -7,11 +7,10 @@ import { RendererProvider, createDOMRenderer } from '@griffel/react';
 import { AppContainer } from '../components';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { queryClient } from '../clients/react-query';
+import { customTheme } from '../theme';
 
 const fluentProviderStyles = { height: '100%' };
 
-webDarkTheme.spac;
-const customTheme = { ...webDarkTheme, fontFamilyBase: "'Open Sans', sans-serif", colorNeutralBackground1: '#181818' };
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
