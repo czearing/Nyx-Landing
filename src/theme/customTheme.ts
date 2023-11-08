@@ -4,4 +4,5 @@ export const customTheme = {
   ...webDarkTheme,
   fontFamilyBase: "'Open Sans', sans-serif",
   colorNeutralBackground1: '#181818',
+  colorNeutralBackground2: '#202020',
 };
