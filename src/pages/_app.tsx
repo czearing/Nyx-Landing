@@ -10,6 +10,8 @@ import { queryClient } from '../clients/react-query';
 
 const fluentProviderStyles = { height: '100%' };
 
+webDarkTheme.spac;
+const customTheme = { ...webDarkTheme, fontFamilyBase: "'Open Sans', sans-serif", colorNeutralBackground1: '#181818' };
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
 
@@ -34,10 +36,11 @@ export default function App(props: AppProps) {
         </Head>
         <style jsx global>{`
           body {
-            background-color: ${webDarkTheme.colorNeutralBackground1};
+            background-color: ${customTheme.colorNeutralBackground1};
             padding: 0px;
             margin: 0px;
             height: 100%;
+            letter-spacing: 0.1em;
           }
           html {
             height: 100%;
@@ -49,7 +52,7 @@ export default function App(props: AppProps) {
         <RendererProvider renderer={pageProps.renderer || createDOMRenderer()}>
           <SSRProvider>
             {isMounted && (
-              <FluentProvider theme={webDarkTheme} style={fluentProviderStyles}>
+              <FluentProvider theme={customTheme} style={fluentProviderStyles}>
                 <AppContainer>
                   <Component {...pageProps} />
                 </AppContainer>
