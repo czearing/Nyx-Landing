@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Input, Textarea, Field, Button } from '@fluentui/react-components';
-import { SocialLinks } from '../components/SocialLinks/SocialLinks';
+import { SocialLinks, Body, Header } from '../components';
 
 const Contact = () => {
   return (
     <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
-      <h1>Contact info</h1>
+      <Header>Contact info</Header>
       <div style={{ maxWidth: '500px', display: 'flex', gap: '10px', flexDirection: 'column' }}>
         <div
           style={{
@@ -34,7 +34,7 @@ const Contact = () => {
           Send
         </Button>
       </div>
-      <div>For more direct or specific inquiries, feel free to reach out via email at contact@nyx.band</div>
+      <Body>For more direct or specific inquiries, feel free to reach out via email at contact@nyx.band</Body>
       <SocialLinks />
     </div>
   );

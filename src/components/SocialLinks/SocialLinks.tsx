@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Button } from '@fluentui/react-components';
 
 const Spotify = () => <Image src="/image/SpotifyLogo.svg" alt="Spotify logo" width={24} height={24} />;
 
@@ -18,15 +19,15 @@ const TidalLogo = () => <Image src="/image/TidalLogo.svg" alt="Tidal logo" width
 
 export const SocialLinks = () => {
   return (
-    <div style={{ display: 'flex', gap: '10px' }}>
-      <Spotify />
-      <AppleMusic />
-      <TidalLogo />
-      <SoundCloud />
-      <Instagram />
-      <Youtube />
-      <Facebook />
-      <XLogo />
+    <div style={{ display: 'flex', gap: '20px' }}>
+      <Button appearance="transparent" icon={<Spotify />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<AppleMusic />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<TidalLogo />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<SoundCloud />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<Instagram />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<Youtube />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<Facebook />} href="https://www.Spotfy.com" as="a" />
+      <Button appearance="transparent" icon={<XLogo />} href="https://www.Spotfy.com" as="a" />
     </div>
   );
 };

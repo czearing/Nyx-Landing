@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { NewsLetterComponent } from '../components';
+import { NewsLetter as NewsLetterComponent } from '../components';
 
 const NewsLetter = () => {
   return <NewsLetterComponent />;

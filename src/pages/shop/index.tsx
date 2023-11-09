@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../../server';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NewsLetterComponent } from 'src/components';
+import { NewsLetter } from '../../components';
 
 const Shop = () => {
   const { data: products, isLoading } = useQuery(['products'], fetchProducts);
@@ -64,7 +64,7 @@ const Shop = () => {
           </Link>
         ))}
       </div>
-      <NewsLetterComponent />
+      <NewsLetter />
     </div>
   );
 };

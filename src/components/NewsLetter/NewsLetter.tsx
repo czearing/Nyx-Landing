@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Input, Button } from '@fluentui/react-components';
+import { Body, Header } from '../Typography';
 
 export const NewsLetter = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,8 +34,8 @@ export const NewsLetter = () => {
 
   return (
     <form onSubmit={subscribe} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '500px' }}>
-      <h2>Subscribe to our newsletter</h2>
-      <div>{"I'll only send emails when new content is posted. No spam."}</div>
+      <Header>Subscribe to our newsletter</Header>
+      <Body>{"I'll only send emails when new content is posted. No spam."}</Body>
       <div style={{ display: 'flex', gap: '10px', flexDirection: 'row', alignItems: 'end' }}>
         <Input placeholder="you@awesome.com" type="email" required ref={inputEl} style={{ flexGrow: '1' }} />
         <Button type="submit" appearance="primary">

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Stars } from '../components/LandingArt/Stars';
 import Script from 'next/script';
+import { Body } from '../components';
 
 const IndexPage = () => {
   return (
@@ -18,7 +19,7 @@ const IndexPage = () => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div>
           <h1>Section Above Stars</h1>
-          <p>This is some content above the stars.</p>
+          <Body>This is some content above the stars.</Body>
         </div>
         {/* The Stars section with a specific height */}
         <div style={{ marginLeft: '-30px' }}>
@@ -27,7 +28,7 @@ const IndexPage = () => {
         {/* Content that should go below the stars section */}
         <div>
           <h1>Section Below Stars</h1>
-          <p>This is some content below the stars.</p>
+          <Body>This is some content below the stars.</Body>
         </div>
       </div>
     </>
