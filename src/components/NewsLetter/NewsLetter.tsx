@@ -33,16 +33,27 @@ export const NewsLetter = () => {
   };
 
   return (
-    <form onSubmit={subscribe} style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '500px' }}>
-      <Header>Subscribe to our newsletter</Header>
-      <Body>{"I'll only send emails when new content is posted. No spam."}</Body>
-      <div style={{ display: 'flex', gap: '10px', flexDirection: 'row', alignItems: 'end' }}>
-        <Input placeholder="you@awesome.com" type="email" required ref={inputEl} style={{ flexGrow: '1' }} />
+    <form
+      onSubmit={subscribe}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px',
+        alignItems: 'center',
+        flexGrow: '1',
+        maxWidth: '400px',
+        width: '100%',
+      }}
+    >
+      <Header>Get the Latest Tracks</Header>
+      <Body>Exclusive updates. No spam.</Body>
+      <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end', width: '100%', flexWrap: 'wrap' }}>
+        <Input placeholder="Your email" type="email" required ref={inputEl} style={{ flexGrow: 1 }} />
         <Button type="submit" appearance="primary">
-          {'✨ Subscribe 💌'}
+          Subscribe
         </Button>
       </div>
-      {message && <div style={{ color: message.includes('Success') ? 'green' : 'red' }}>{message}</div>}
+      {message && <div style={{ color: message.includes('Success') ? '#4CAF50' : '#F44336' }}>{message}</div>}
     </form>
   );
 };

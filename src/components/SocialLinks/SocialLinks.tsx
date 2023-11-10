@@ -19,7 +19,7 @@ const TidalLogo = () => <Image src="/image/TidalLogo.svg" alt="Tidal logo" width
 
 export const SocialLinks = () => {
   return (
-    <div style={{ display: 'flex', gap: '20px' }}>
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
       <Button appearance="transparent" icon={<Spotify />} href="https://www.Spotfy.com" as="a" />
       <Button appearance="transparent" icon={<AppleMusic />} href="https://www.Spotfy.com" as="a" />
       <Button appearance="transparent" icon={<TidalLogo />} href="https://www.Spotfy.com" as="a" />
